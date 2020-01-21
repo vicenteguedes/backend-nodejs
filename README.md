@@ -31,8 +31,6 @@ Você precisa desenvolver um algoritmo para um caixa eletrônico, seguindo os re
 
 > **ATENÇÃO**: Não é necessário realizar interação com banco de dados (opcional).
 
-> **DICA**: Não faça todo o código no arquivo `application.ts`.
-
 ### Dúvidas
 
 Em caso de dúvida entre em contato pelo skype **matheusmoovin**
