@@ -1,5 +1,6 @@
 import * as express from "express";
 import * as Joi from "joi";
+import * as uuid from "uuid/v1";
 
 const router = express();
 
@@ -11,9 +12,9 @@ interface Account {
 }
 
 const accounts: Account[] = [
-  { customerId: "0", id: "1", balance: 900, type: "Conta Poupança" },
-  { customerId: "1", id: "2", balance: 100, type: "Conta Corrente" },
-  { customerId: "2", id: "3", balance: 0.2, type: "Conta Corrente" }
+  { customerId: "0", id: uuid(), balance: 900, type: "Conta Poupança" },
+  { customerId: "1", id: uuid(), balance: 100, type: "Conta Corrente" },
+  { customerId: "2", id: uuid(), balance: 0.2, type: "Conta Corrente" }
 ];
 
 router.get("/", (req, res) => {
@@ -33,7 +34,7 @@ router.post("/create", (req, res) => {
   const account: Account = {
     customerId: req.body.customerId,
     type: req.body.type,
-    id: (accounts.length + 1).toString()
+    id: uuid()
   };
 
   if (req.body.balance) {
