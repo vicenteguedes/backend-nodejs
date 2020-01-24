@@ -44,7 +44,7 @@ router.delete('/:id', async (req, res) => {
 
 function validate(body: object) {
   const schema = {
-    // In real world applications, customerId would be a valid objectId, but simple string for testing.
+    // In real world applications, customerId would be a valid objectId, but here a simple string for testing.
     customerId: Joi.string().required(),
     type: Joi.string()
       .valid(['Conta Corrente', 'Conta Poupança'])

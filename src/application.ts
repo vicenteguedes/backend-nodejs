@@ -6,14 +6,14 @@ import * as mongoose from 'mongoose'
 import { router as deposits } from './routes/deposits'
 import { router as withdrawals } from './routes/withdrawals'
 import { router as accounts } from './routes/accounts'
+import * as config from 'config'
 
 dotenv.config()
 
 const application = express()
+const db: string = config.get('db')
 
-mongoose
-  .connect('mongodb://localhost:27017/moovin', { useNewUrlParser: true, useUnifiedTopology: true })
-  .catch(error => console.log(error))
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).catch(error => console.log(error))
 
 application.use(bodyParser.text())
 application.use(express.json())
